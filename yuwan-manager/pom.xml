@@ -17,8 +17,20 @@
         <module>yuwan-manager-service</module>
         <module>yuwan-manager-dao</module>
         <module>yuwan-manager-interface</module>
-        <module>yuwan-manager-web</module>
     </modules>
-
+    <build>
+        <plugins>
+            <!-- 配置Tomcat插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <!-- http://127.0.0.1:${port}/${path} -->
+                    <port>8081</port>
+                    <path>/</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
