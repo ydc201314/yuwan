@@ -24,13 +24,13 @@
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.yuwan.manager.service.TestService"
 		ref="testServiceImpl" />
-	<!--<dubbo:service interface="com.yuwan.manager.service.ItemCatService"
-		ref="itemCatServiceImpl" />-->
-	<!--<dubbo:service interface="com.yuwan.manager.service.ItemService"
-		ref="itemServiceImpl" />-->
-	<!--<dubbo:service interface="com.yuwan.manager.service.ItemDescService"
+	<dubbo:service interface="com.yuwan.manager.service.ItemCatService"
+		ref="itemCatServiceImpl" />
+	<dubbo:service interface="com.yuwan.manager.service.ItemService"
+		ref="itemServiceImpl" />
+	<dubbo:service interface="com.yuwan.manager.service.ItemDescService"
 		ref="itemDescServiceImpl" />
-	<dubbo:service interface="com.yuwan.manager.service.ContentCategoryService"
+	<!--<dubbo:service interface="com.yuwan.manager.service.ContentCategoryService"
 		ref="contentCategoryServiceImpl" />
 	<dubbo:service interface="com.yuwan.manager.service.ContentService"
 		ref="contentServiceImpl" />-->

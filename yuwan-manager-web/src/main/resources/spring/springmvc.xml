@@ -42,14 +42,14 @@
 	<!-- <dubbo:reference interface="com.taotao.manager.service.TestService" -->
 	<!-- id="testService" timeout="1000000" /> -->
 	<dubbo:reference interface="com.yuwan.manager.service.TestService"
-		id="testService" timeout="1000000" />
-	<!--<dubbo:reference interface="com.yuwan.manager.service.ItemCatService"
+		id="testService" timeout="1000000" url="dubbo://127.0.0.1:20880/"/>
+	<dubbo:reference interface="com.yuwan.manager.service.ItemCatService"
 		id="itemCatService" timeout="1000000" />
-	<dubbo:reference interface="com.taotao.manager.service.ItemService"
+	<dubbo:reference interface="com.yuwan.manager.service.ItemService"
 		id="itemService" timeout="1000000" />
-	<dubbo:reference interface="com.taotao.manager.service.ItemDescService"
+	<dubbo:reference interface="com.yuwan.manager.service.ItemDescService"
 		id="itemDescService" timeout="1000000" />
-	<dubbo:reference interface="com.taotao.manager.service.ContentCategoryService"
+	<!--<dubbo:reference interface="com.taotao.manager.service.ContentCategoryService"
 		id="contentCategoryService" timeout="1000000" />
 	<dubbo:reference interface="com.taotao.manager.service.ContentService"
 		id="contentService" timeout="1000000" />-->
