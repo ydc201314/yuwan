@@ -18,7 +18,6 @@ yuwan-common/src/test/
 yuwan-common/target/
 yuwan-common/yuwan-common.iml
 yuwan-manager-web/src/main/main3.iml
-yuwan-manager-web/src/main/resources/resource/
 yuwan-manager-web/target/
 yuwan-manager-web/yuwan-manager-web.iml
 yuwan-manager/yuwan-manager-dao/src/main/main5.iml

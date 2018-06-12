@@ -34,7 +34,7 @@
 	<!-- 配置dubbo服务 -->
 	<dubbo:application name="yuwan-manager-web" />
 	<!-- 使用zookeeper注册中心 -->
-	<dubbo:registry protocol="zookeeper" address="47.106.193.97:2181"></dubbo:registry>
+	<dubbo:registry protocol="zookeeper" address="118.190.158.5:2181"></dubbo:registry>
 	<!-- 使用广播 -->
 	<!--<dubbo:registry address="multicast://224.5.6.7:1234" />-->
 
