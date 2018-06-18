@@ -21,11 +21,11 @@ import java.util.Map;
 @Service
 public class ContentServiceImpl extends BaseServiceImpl<Content> implements ContentService {
 
-    /*@Autowired
+    @Autowired
     private RedisUtils redisUtils;
 
     @Value("${YUWAN_PORTAL_AD}")
-    private String YUWAN_PORTAL_AD;*/
+    private String YUWAN_PORTAL_AD;
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -53,7 +53,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
     public String queryAD(Long categoryId) {
         // 1. 从缓存中查询
         // 为了很好的管理和维护redis，需要redis的key是有意义的
-        /*try {
+        try {
             String redisJson = this.redisUtils.get(YUWAN_PORTAL_AD);
             // 判断是否为空，如果不为空表示命中了，直接返回
             if (StringUtils.isNotBlank(redisJson)) {
@@ -61,7 +61,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
             }
         } catch (Exception e1) {
             e1.printStackTrace();
-        }*/
+        }
 
         // 2. 如果没有命中，执行原有逻辑，查MySQL
         // 从数据库查询大广告需要的数据，其实就是查询CategoryId为31的数据
@@ -94,7 +94,7 @@ public class ContentServiceImpl extends BaseServiceImpl<Content> implements Cont
         try {
             json = MAPPER.writeValueAsString(result);
             // 3. 把查到的数据放到redis中
-           // this.redisUtils.set(this.YUWAN_PORTAL_AD, json, 60 * 60 * 24);
+            this.redisUtils.set(this.YUWAN_PORTAL_AD, json, 60 * 60 * 24);
         } catch (Exception e) {
             e.printStackTrace();
         }
