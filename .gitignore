@@ -8,6 +8,7 @@
 out
 gen
 /target/
+/test/
 .idea/
 fastdfs_client/fastdfs_client.iml
 fastdfs_client/src/main/java/main6.iml
@@ -38,3 +39,4 @@ yuwan-manager/yuwan-manager-service/target/
 yuwan-manager/yuwan-manager-service/yuwan-manager-service.iml
 yuwan-manager/yuwan-manager.iml
 yuwan-parent/yuwan-parent.iml
+/yuwan-sso/yuwan-sso-interface/src/test/

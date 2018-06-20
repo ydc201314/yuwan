@@ -10,29 +10,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yuwan-portal</artifactId>
-    <packaging>war</packaging>
+    <artifactId>yuwan-sso</artifactId>
+    <packaging>pom</packaging>
 
-    <name>yuwan-portal Maven Webapp</name>
+    <name>yuwan-sso</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+    <modules>
+        <module>yuwan-sso-interface</module>
+        <module>yuwan-sso-service</module>
+    </modules>
 
     <dependencies>
-        <!-- 加入-manager-interface依赖 -->
-        <dependency>
-            <groupId>com.yuwan</groupId>
-            <artifactId>yuwan-manager-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yuwan</groupId>
-            <artifactId>yuwan-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>yuwan-portal</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <!-- 配置Tomcat插件 -->
@@ -40,7 +32,7 @@
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <configuration>
-                        <port>8083</port>
+                        <port>8082</port>
                         <path>/</path>
                     </configuration>
                 </plugin>
