@@ -1,11 +1,8 @@
 package com.yuwan.portal.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.yuwan.common.utils.CookieUtils;
+import com.yuwan.manager.pojo.User;
+import com.yuwan.sso.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,23 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yuwan.common.utils.CookieUtils;
-import com.yuwan.manager.pojo.User;
-import com.yuwan.sso.service.UserService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
 
-	@Value("${TT_TICKET}")
-	private String TT_TICKET;
+	@Value("${YUWAN_TICKET}")
+	private String YUWAN_TICKET;
 
 	@Autowired
 	private UserService userService;
 
 	/**
 	 * 用户注册
-	 * 
+	 *
 	 * @param user
 	 * @return
 	 */
@@ -72,7 +70,7 @@ public class UserController {
 		// 判断ticket不为空
 		if (StringUtils.isNotBlank(ticket)) {
 			// 把ticket放到cookie中
-			CookieUtils.setCookie(request, response, this.TT_TICKET, ticket, 60 * 60 * 24, true);
+			CookieUtils.setCookie(request, response, this.YUWAN_TICKET, ticket, 60 * 60 * 24, true);
 
 			// if (obj.status == 200) {
 			// 登录成功，封装返回数据

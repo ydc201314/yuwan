@@ -5,7 +5,7 @@ function login() {
     return location.href = "http://www.taotao.com/page/login.html";
 }
 function regist() {
-    return location.href = "http://www.taotao.com/page/register.html";
+    return location.href = "http://www.yudch.top/page/register.html";
 }
 function createCookie(a, b, c, d) {
     var d = d ? d : "/";

@@ -174,7 +174,7 @@
                 </div>
         </div>
         <div class="free-regist">
-            <span><a href="http://www.taotao.com/page/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
+            <span><a href="http://www.yudch.top/page/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
         </div>
     </div>
 </form>

@@ -1,11 +1,11 @@
 var TT = TAOTAO = {
 	checkLogin : function(){
-		var _ticket = $.cookie("TT_TICKET");
+		var _ticket = $.cookie("YUWAN_TICKET");
 		if(!_ticket){
 			return ;
 		}
 		$.ajax({
-			url : "http://sso.taotao.com/user/" + _ticket,
+			url : "http://sso.yudch.top/user/" + _ticket,
 			dataType : "jsonp",
 			type : "GET",
 			success : function(data){
