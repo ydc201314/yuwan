@@ -2,7 +2,7 @@
  Date: 2014-01-21 
  */
 function login() {
-    return location.href = "http://www.taotao.com/page/login.html";
+    return location.href = "http://www.yudch.top/page/login.html";
 }
 function regist() {
     return location.href = "http://www.yudch.top/page/register.html";
