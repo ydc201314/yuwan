@@ -41,8 +41,6 @@
 	<!-- 声明要调用的服务，timeout是设置连接超时最长时间,如果不设置，超时时间默认是3秒 -->
 	<!-- <dubbo:reference interface="com.taotao.manager.service.TestService" -->
 	<!-- id="testService" timeout="1000000" /> -->
-	<dubbo:reference interface="com.yuwan.manager.service.TestService"
-		id="testService" timeout="1000000" url="dubbo://127.0.0.1:20880/"/>
 	<dubbo:reference interface="com.yuwan.manager.service.ItemCatService"
 		id="itemCatService" timeout="1000000" />
 	<dubbo:reference interface="com.yuwan.manager.service.ItemService"
