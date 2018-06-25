@@ -16,7 +16,7 @@
 
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven />
-
+	<mvc:default-servlet-handler />
 	<!-- 配置视图解析器 ,配置前缀和后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
