@@ -1,14 +1,17 @@
 package com.yuwan.manager.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.abel533.mapper.Mapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yuwan.common.pojo.EasyUIResult;
 import com.yuwan.common.redis.RedisUtils;
 import com.yuwan.manager.pojo.Content;
+import com.yuwan.manager.pojo.ContentCategory;
 import com.yuwan.manager.service.ContentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,13 @@ import java.util.Map;
 @Service
 public class ContentServiceImpl extends BaseServiceImpl<Content> implements ContentService {
 
+    @Autowired
+    @Qualifier("contentMapper")
+    private Mapper<Content> mapper;
+
+    public Mapper<Content> getMapper() {
+        return mapper;
+    }
     @Autowired
     private RedisUtils redisUtils;
 

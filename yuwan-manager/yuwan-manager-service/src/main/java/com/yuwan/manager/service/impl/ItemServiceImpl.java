@@ -1,5 +1,6 @@
 package com.yuwan.manager.service.impl;
 
+import com.github.abel533.mapper.Mapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yuwan.common.pojo.EasyUIResult;
@@ -8,14 +9,25 @@ import com.yuwan.manager.pojo.ItemDesc;
 import com.yuwan.manager.service.ItemDescService;
 import com.yuwan.manager.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ItemServiceImpl extends BaseServiceImpl<Item> implements ItemService {
+
+    @Autowired
+    @Qualifier("itemMapper")
+    private Mapper<Item> mapper;
+
+    public Mapper<Item> getMapper() {
+        return mapper;
+    }
+
     @Autowired
     private ItemDescService itemDescService;
+
     @Override
     public void save(Item item, String desc) {
         item.setStatus(1);
@@ -25,6 +37,7 @@ public class ItemServiceImpl extends BaseServiceImpl<Item> implements ItemServic
         itemDesc.setItemId(item.getId());
         this.itemDescService.save(itemDesc);
     }
+
     @Override
     public EasyUIResult<Item> queryItemList(Integer page, Integer rows) {
         // 设置分页数据

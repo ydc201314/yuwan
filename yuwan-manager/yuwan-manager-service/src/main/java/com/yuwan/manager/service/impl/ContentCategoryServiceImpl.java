@@ -1,7 +1,10 @@
 package com.yuwan.manager.service.impl;
 
+import com.github.abel533.mapper.Mapper;
 import com.yuwan.manager.pojo.ContentCategory;
 import com.yuwan.manager.service.ContentCategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +12,13 @@ import java.util.List;
 
 @Service
 public class ContentCategoryServiceImpl extends BaseServiceImpl<ContentCategory> implements ContentCategoryService {
+
+    @Autowired
+    @Qualifier("contentCategoryMapper")
+    private Mapper<ContentCategory> mapper;
+    public Mapper<ContentCategory> getMapper(){
+       return mapper;
+    }
 
     public List<ContentCategory> queryContentCategoryByParentId(Long parentId) {
         // 设置查询条件

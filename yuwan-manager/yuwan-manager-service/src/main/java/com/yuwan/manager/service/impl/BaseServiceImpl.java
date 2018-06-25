@@ -13,12 +13,10 @@ import com.github.pagehelper.PageHelper;
 import com.yuwan.manager.pojo.BasePojo;
 import com.yuwan.manager.service.BaseService;
 
-public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
+public abstract class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 
-	@Autowired
-	private Mapper<T> mapper;
+	public abstract Mapper<T> getMapper();
 	private Class<T> clazz;
-
 	// 无参构造
 	public BaseServiceImpl() {
 		// 获取父类的泛型type
@@ -31,25 +29,25 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 
 	@Override
 	public T queryById(Long id) {
-		T t = this.mapper.selectByPrimaryKey(id);
+		T t = this.getMapper().selectByPrimaryKey(id);
 		return t;
 	}
 
 	@Override
 	public List<T> queryAll() {
-		List<T> list = this.mapper.select(null);
+		List<T> list = this.getMapper().select(null);
 		return list;
 	}
 
 	@Override
 	public Integer queryCountByWhere(T t) {
-		int count = this.mapper.selectCount(t);
+		int count = this.getMapper().selectCount(t);
 		return count;
 	}
 
 	@Override
 	public List<T> queryListByWhere(T t) {
-		List<T> list = this.mapper.select(t);
+		List<T> list = this.getMapper().select(t);
 		return list;
 	}
 
@@ -57,14 +55,14 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 	public List<T> queryListByPage(Integer page, Integer rows) {
 		PageHelper.startPage(page, rows);
 
-		List<T> list = this.mapper.select(null);
+		List<T> list = this.getMapper().select(null);
 
 		return list;
 	}
 
 	@Override
 	public T queryOne(T t) {
-		T result = this.mapper.selectOne(t);
+		T result = this.getMapper().selectOne(t);
 		return result;
 	}
 
@@ -78,7 +76,7 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 			t.setUpdated(t.getCreated());
 		}
 
-		this.mapper.insert(t);
+		this.getMapper().insert(t);
 	}
 
 	@Override
@@ -90,7 +88,7 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 		} else if (t.getUpdated() == null) {
 			t.setUpdated(t.getCreated());
 		}
-		this.mapper.insertSelective(t);
+		this.getMapper().insertSelective(t);
 	}
 
 	@Override
@@ -98,7 +96,7 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 		// 更新方法直接设置时间
 		t.setUpdated(new Date());
 
-		this.mapper.updateByPrimaryKey(t);
+		this.getMapper().updateByPrimaryKey(t);
 	}
 
 	@Override
@@ -106,12 +104,12 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 		// 更新方法直接设置时间
 		t.setUpdated(new Date());
 
-		this.mapper.updateByPrimaryKeySelective(t);
+		this.getMapper().updateByPrimaryKeySelective(t);
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		this.mapper.deleteByPrimaryKey(id);
+		this.getMapper().deleteByPrimaryKey(id);
 	}
 
 	@Override
@@ -120,7 +118,7 @@ public class BaseServiceImpl<T extends BasePojo> implements BaseService<T> {
 		Example example = new Example(this.clazz);
 		example.createCriteria().andIn("id", ids);
 
-		this.mapper.deleteByExample(example);
+		this.getMapper().deleteByExample(example);
 	}
 
 }
