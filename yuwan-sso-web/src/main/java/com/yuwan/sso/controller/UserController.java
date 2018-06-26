@@ -82,22 +82,22 @@ public class UserController {
 	 * @return ResponseEntity<User>
 	 */
 	@RequestMapping(value = "{ticket}", method = RequestMethod.GET)
-	public ResponseEntity<User> queryUserByTicket(HttpServletRequest request, @PathVariable("ticket") String ticket) {
+	public ResponseEntity<String> queryUserByTicket(HttpServletRequest request, @PathVariable("ticket") String ticket) {
 		try {
 			String result = "";
 			// 调用用户服务，根据ticket查询用户数据
 			User user = this.userService.queryUserByTicket(ticket);
-			MAPPER.
+			String jsonUser = MAPPER.writeValueAsString(user);
 
 			String callback = request.getParameter("callback");
 			if (StringUtils.isNotBlank(callback)) {
 				// 改造支持jsonp：3. 使用callback包裹返回的数据
-				result = callback + "(" + user + ")";
+				result = callback + "(" + jsonUser + ")";
 			} else {
-				result = "" + user;
+				result = "" + jsonUser;
 			}
-			if (user != null) {
-				return ResponseEntity.ok(user);
+			if (result != null) {
+				return ResponseEntity.ok(result);
 			} else {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 			}
