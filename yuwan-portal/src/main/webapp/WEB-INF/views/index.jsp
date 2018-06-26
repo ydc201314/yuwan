@@ -258,7 +258,7 @@ pageConfig.DATA_MScroll =[
 <!--virtuals end-->
 <span class="clr"></span>
 </div>
-<!-- 幻灯片, 公信力, 淘淘快报, 虚拟产品 end -->
+<!-- 幻灯片, 公信力, 鱼丸快报, 虚拟产品 end -->
  
 <div id="floors-list">
 <div class="w w1" data-fid="0" id="electronics">
