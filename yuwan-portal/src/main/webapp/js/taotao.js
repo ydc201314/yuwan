@@ -12,7 +12,7 @@ var TT = TAOTAO = {
 				if(data){
 					var _data = data;
 					var html =_data.username+"，欢迎来到淘淘！<a href=\"http://www.yudch.top/user/logout.html\" class=\"link-logout\">[退出]</a>";
-					$("#loginbar").html(html);
+					$("#loginbar").replaceWith(html);
 				}
 			}
 		});

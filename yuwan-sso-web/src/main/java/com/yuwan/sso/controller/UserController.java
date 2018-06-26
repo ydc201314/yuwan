@@ -2,6 +2,7 @@ package com.yuwan.sso.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	// ObjectMapper工具类的作用：1.对象转json；2.json转对象；3.直接解析json
+	private static final ObjectMapper MAPPER = new ObjectMapper();
 	/**
 	 * 校验数据是否可用
 	 *
@@ -78,11 +82,20 @@ public class UserController {
 	 * @return ResponseEntity<User>
 	 */
 	@RequestMapping(value = "{ticket}", method = RequestMethod.GET)
-	public ResponseEntity<User> queryUserByTicket(@PathVariable("ticket") String ticket) {
+	public ResponseEntity<User> queryUserByTicket(HttpServletRequest request, @PathVariable("ticket") String ticket) {
 		try {
-
+			String result = "";
 			// 调用用户服务，根据ticket查询用户数据
 			User user = this.userService.queryUserByTicket(ticket);
+			MAPPER.
+
+			String callback = request.getParameter("callback");
+			if (StringUtils.isNotBlank(callback)) {
+				// 改造支持jsonp：3. 使用callback包裹返回的数据
+				result = callback + "(" + user + ")";
+			} else {
+				result = "" + user;
+			}
 			if (user != null) {
 				return ResponseEntity.ok(user);
 			} else {
