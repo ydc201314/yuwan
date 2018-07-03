@@ -26,7 +26,7 @@
 		<!-- 连接池中未使用的链接最大存活时间，单位是分，默认值：60，如果要永远存活设置为0 -->
 		<property name="idleMaxAge" value="30" />
 		<!-- 每个分区最大的连接数 -->
-		<property name="maxConnectionsPerPartition" value="150" />
+		<property name="maxConnectionsPerPartition" value="1000" />
 		<!-- 每个分区最小的连接数 -->
 		<property name="minConnectionsPerPartition" value="5" />
 	</bean>
