@@ -56,8 +56,8 @@
 		id="userService" timeout="1000000" />
 	<dubbo:reference interface="com.yuwan.manager.service.ItemService"
 		id="itemService" timeout="1000000" />
-	<!--<dubbo:reference interface="com.yuwan.cart.service.CartService"
+	<dubbo:reference interface="com.yuwan.cart.service.CartService"
 		id="cartService" timeout="1000000" />
-	<dubbo:reference interface="com.yuwan.order.service.OrderService"
+	<!--<dubbo:reference interface="com.yuwan.order.service.OrderService"
 		id="orderService" timeout="1000000" />-->
 </beans>
