@@ -33,8 +33,8 @@ public class CartServiceImpl implements CartService {
 
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 
-	@Value("${TAOTAO_CART_KEY}")
-	private String TAOTAO_CART_KEY;
+	@Value("${YUWAN_CART_KEY}")
+	private String YUWAN_CART_KEY;
 
 	@Override
 	public void addItemByCart(Long userId, Long itemId, Integer num) {
@@ -85,7 +85,7 @@ public class CartServiceImpl implements CartService {
 
 		try {
 			// 把修改后的购物车放到redis中
-			this.redisUtils.set(this.TAOTAO_CART_KEY + userId, MAPPER.writeValueAsString(list));
+			this.redisUtils.set(this.YUWAN_CART_KEY + userId, MAPPER.writeValueAsString(list));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,7 +98,7 @@ public class CartServiceImpl implements CartService {
 		// 使用RedisUtils查询redis数据库，获取用户的购物车数据
 		// redis中存放的是json格式的数据
 		// 保存用户的购物车的key需要设置前缀，方便管理和维护。key使用的是用户id
-		String json = this.redisUtils.get(this.TAOTAO_CART_KEY + userId);
+		String json = this.redisUtils.get(this.YUWAN_CART_KEY + userId);
 
 		try {
 			// 判断查询结果不为空
@@ -151,7 +151,7 @@ public class CartServiceImpl implements CartService {
 
 				try {
 					// 把修改好的购物车数据保存到redis中
-					this.redisUtils.set(this.TAOTAO_CART_KEY + userId, MAPPER.writeValueAsString(list));
+					this.redisUtils.set(this.YUWAN_CART_KEY + userId, MAPPER.writeValueAsString(list));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -178,7 +178,7 @@ public class CartServiceImpl implements CartService {
 
 				try {
 					// 把修改后的购物车保存到redis中
-					this.redisUtils.set(this.TAOTAO_CART_KEY + userId, MAPPER.writeValueAsString(list));
+					this.redisUtils.set(this.YUWAN_CART_KEY + userId, MAPPER.writeValueAsString(list));
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

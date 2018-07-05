@@ -7,7 +7,14 @@
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<!--最大空闲连接数-->
+		<property name="maxTotal" value="${redis.pool.maxTotal}" />
+		<!--初始化连接数-->
+		<property name="maxIdle" value="${redis.pool.maxIdle}" />
+		<!--最大等待时间-->
+		<property name="minIdle" value="${redis.pool.minIdle}"/>
+	</bean>
 	<!-- 配置redis连接池 -->
 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
 		<constructor-arg index="0" ref="poolConfig"/>
@@ -52,7 +59,7 @@
 	</bean>
 
 	<!-- 配置单机版实现类 -->
-	<bean class="com.yuwan.common.redis.impl.RedisPool" />
+	<bean id="poolJedisClient" class="com.yuwan.common.redis.impl.RedisPool" />
 
 	<!-- 配置集群版实现类 -->
 	<!-- <bean class="com.taotao.cart.redis.impl.RedisCluster" /> -->

@@ -35,7 +35,7 @@
 		
 		function submitItem(){
 			var num = $("#buy-num").val();
-    		window.location.href= "http://www.taotao.com/cart/${item.id}.html?num="+num;
+    		window.location.href= "http://www.yudch.top/cart/${item.id}.html?num="+num;
     	}
 	</script>
 </head>
