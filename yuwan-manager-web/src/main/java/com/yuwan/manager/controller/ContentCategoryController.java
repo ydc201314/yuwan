@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 终极实验
+ * 终极实验,少写点bug
  */
 @Controller
 @RequestMapping("content/category")
