@@ -33,15 +33,15 @@
 	</bean>
 
 	<!-- 配置拦截器 -->
-	<!--<mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
-			&lt;!&ndash; 所有以order开头的请求进入拦截器 &ndash;&gt;
-			&lt;!&ndash; **：/order/a/b/a.html *：/order/a &ndash;&gt;
+			<!-- 所有以order开头的请求进入拦截器 -->
+			<!-- **：/order/a/b/a.html *：/order/a -->
 			<mvc:mapping path="/order/**" />
-			&lt;!&ndash; 配置拦截器 &ndash;&gt;
+			<!-- 配置拦截器 -->
 			<bean class="com.yuwan.portal.interceptor.OrderInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors>-->
+	</mvc:interceptors>
 	<!-- 配置dubbo服务 -->
 	<dubbo:application name="yuwan-portal" />
 	<!-- 使用zookeeper注册中心 -->
@@ -58,6 +58,6 @@
 		id="itemService" timeout="1000000" />
 	<dubbo:reference interface="com.yuwan.cart.service.CartService"
 		id="cartService" timeout="1000000" />
-	<!--<dubbo:reference interface="com.yuwan.order.service.OrderService"
-		id="orderService" timeout="1000000" />-->
+	<dubbo:reference interface="com.yuwan.order.service.OrderService"
+		id="orderService" timeout="1000000" />
 </beans>
